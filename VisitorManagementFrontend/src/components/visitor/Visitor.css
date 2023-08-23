@@ -1,0 +1,62 @@
+.card-header {
+    background: rgb(39, 39, 52);
+    color: white;
+    height: 60px;
+}
+
+.card-body {
+    background: rgb(227, 225, 225);
+}
+
+.card-body input {
+    background: none;
+    border: none;
+    border-bottom: 3px solid rgb(84, 84, 85);
+    margin-top: -6px;
+
+}
+
+#select select {
+    background: none;
+    border: none;
+    border-bottom: 3px solid rgb(84, 84, 85);
+}
+
+.card-body input:focus {
+    background: none;
+    outline: none;
+}
+
+#remark {
+    background: none;
+    border: none;
+    border-bottom: 3px solid rgb(84, 84, 85);
+    border-top: 1px solid rgb(84, 84, 85);
+    border-left: 1px solid rgb(84, 84, 85);
+    border-right: 1px solid rgb(84, 84, 85);
+    resize: none;
+}
+
+.card {
+    box-shadow: 1px 1px 12px 1px black;
+}
+
+option {
+    background: rgb(39, 39, 52);
+    color: white
+}
+
+option:hover {
+    background: white;
+    color: black;
+}
+
+label {
+    color: rgb(39, 39, 52);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.card-title {
+    font-size: 20px;
+}

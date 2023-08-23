@@ -1,0 +1,108 @@
+$bgcolor:#000;
+.logincontainer h1{
+  display:none;
+}
+.logincontainer{
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}  
+  .user_card {
+    height: 400px;
+    width: 400px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: rgba(0, 0, 14, 0.8); 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .brand_logo_container {
+    position: absolute;
+    height: 160px;
+    width: 160px;
+    top: -75px;
+    border-radius: 50%;
+    background:linear-gradient(white,gray);
+    padding: 10px;
+    text-align: center;
+
+  }
+  
+  .brand_logo {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 3px 3px 10px #000;
+  }
+  
+  .form_container {
+    margin-top: 90px;
+
+    .head{
+        font-weight: 700;
+    }
+  }
+  
+
+  
+  .login_container {
+    padding: 0 2rem;
+  }
+  
+  .input-group-text {
+    background: rgb(211, 0, 0) !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+  }
+  
+  .input_user, .input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+  
+  .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #49c3be !important;
+  }
+
+
+  .input{
+    background:none;
+    border: none;
+    margin-top: 9px;
+    width: 240px;
+    color: white;
+  }
+  .input::placeholder{
+    color: white;
+  }
+  .input:focus{
+    background:none;
+    outline: none;
+  }
+  // .input::selection{
+  //   background:none;
+  //   outline: none;
+  // }
+
+  @media (min-width: 1250px) {
+    .logincontainer h1{
+      display:block;
+      margin-top: 210px;
+      font-size: 90px;
+      color: white;
+      text-shadow: 1px 3px 9px #373636;
+      font-weight: 700;
+    }
+    
+    .input{
+      width: 280px;
+      height:34px;
+    }
+  }

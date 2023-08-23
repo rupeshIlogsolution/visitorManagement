@@ -1,0 +1,40 @@
+.dashboardcont h1{
+    position: fixed;
+    margin: 13% 0 20% 20%;
+    font-size: 6em;
+    color: white;
+    text-shadow: 1px 3px 9px #373636;
+}
+@media screen and (min-device-width: 0) and (max-device-width: 480px) { 
+    .dashboardcont h1{
+        margin: 40% 7% 20% 12%;
+        font-size: 3em;
+    }
+  }
+
+  @media screen and (min-device-width: 480) and (max-device-width: 1000px) { 
+    .dashboardcont h1{
+        margin: 50% 0 20% 17%;
+        font-size: 3em;
+    }
+  }
+  @media screen and (min-device-width: 1300px) and (max-device-width: 1470px) { 
+    .dashboardcont h1{
+        margin: 15% 0 20% 17%;
+    }
+  }
+  @media screen and (min-device-width: 1200px) and (max-device-width: 1300px) { 
+    .dashboardcont h1{
+        margin: 20% 0 20% 10%;
+    }
+  }
+  @media screen and (min-device-width: 480px) and (max-device-width: 1000px) { 
+    .dashboardcont h1{
+        font-size: 4em
+    }
+  }
+  @media screen and (max-device-width: 1550px) { 
+    .dashboardcont h1{
+      margin: 13% 0 20% 13%;
+    }
+  }

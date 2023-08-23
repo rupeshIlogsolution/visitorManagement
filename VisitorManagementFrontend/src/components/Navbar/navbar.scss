@@ -1,0 +1,143 @@
+$navbg: #f7f7f7;
+$textcolor: rgb(14, 14, 14);
+
+#nav {
+  background: rgb(39, 39, 52);
+  border-bottom: 1px solid white;
+  height: 65px;
+  width: 100%;
+  position: fixed;
+  top: 0%;
+  z-index: 1;
+}
+
+.navcontainer {
+  height: 80px;
+  background: $navbg;
+  color: $textcolor;
+  position: relative;
+  border-bottom: 1px solid rgb(218, 218, 218);
+
+  .navlogo {
+    height: 80%;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .navlinks {
+    display: flex;
+    margin: 0px 200px 0px 20px;
+
+
+    .navlink {
+      margin: 0px 10px 0px 10px;
+      list-style: none;
+      font-size: 15px;
+      font-weight: 600;
+
+      a {
+        text-decoration: none;
+        color: white;
+
+      }
+
+      a:hover {
+        color: rgb(255, 255, 255);
+        width: 100%;
+      }
+    }
+  }
+
+  .profilediv {
+    position: absolute;
+    top: 30%;
+    // right: 52%;
+    display: flex;
+    flex-direction: row;
+
+
+    .warehouseplace {
+      list-style: none;
+      // color:$textcolor;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      margin: -21px -66px 0px 0px;
+      color: rgb(255, 255, 255);
+
+      .staricon {
+        font-size: 35px;
+        height: 30px;
+        width: 30px;
+      }
+    }
+
+    .profilelink {
+      list-style: none;
+      font-size: 17px;
+      font-weight: 500;
+      cursor: pointer;
+      color: white;
+    }
+
+    .sliderbar {
+      display: none;
+      margin-top: 10%;
+    }
+  }
+
+}
+
+.navbar .navbar-nav .nav-item {
+  position: relative;
+}
+
+.navbar .navbar-nav .nav-item::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 0 3px 0;
+  background-color: white;
+  width: 0%;
+  content: "";
+  height: 3px;
+  transition: 0.5s;
+}
+
+.navbar .navbar-nav .nav-item:hover::after {
+  width: 100%;
+}
+
+#navdrop {
+  background: rgb(39, 39, 52);
+  border: 1px solid white;
+}
+
+#i {
+  color: white;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+#i:hover {
+  color: black;
+}
+
+#li {
+  margin: 0 -15px 0 25px;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.navbar-light .navbar-toggler{
+  border:2px solid white
+}
+@media only screen and (min-width: 0px) and (max-width: 992px) {
+  #ul{
+    display: none;
+  }
+}

@@ -1,0 +1,356 @@
+$bgcolor:silver;
+$textcolor:#000;
+$topdivbg:rgb(39, 39, 52);
+$test2:white;
+
+.slidercontainer {
+    height: 100%;
+    width: 350px;
+    background: $bgcolor;
+    color: $textcolor;
+    border: 1px solid black;
+    position: absolute;
+    top: 0%;
+    transform: translateX(-100%);
+    transition: all 0.6s linear;
+    z-index: 1000000;
+
+    .closebox {
+        height: 200px;
+        font-size: 30px;
+        background: $topdivbg;
+        position: relative;
+
+        span {
+            position: absolute;
+            right: 6%;
+            top: 1%;
+            
+        }
+
+        .userdetail {
+            font-size: 18px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            color: $test2;
+
+            .name {
+                margin: 0;
+            }
+
+            .warehouse {
+                margin: 0;
+            }
+
+        }
+
+        .imgdiv {
+            height: 115px;
+            width: 115px;
+            background: $bgcolor;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -30%;
+            left: 50%;
+            transform: translate(-50%);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: 80px;
+                border-radius: 50%;
+                width: 80px;
+                border:2px solid red;
+            }
+        }
+    }
+
+
+    .bottomdiv {
+        height: 445px;
+        margin-top: 60px;
+        width: 100%;
+
+        .listitems {
+            margin: 0%;
+            padding: 0;
+
+
+            .listitem {
+                list-style: none;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                border-radius: 20px;
+                padding: 0px 0px 0px 10px;
+                transition: all 0.5 linear;
+                cursor: pointer;
+                &:hover {
+                    background: #fff;
+                }
+                
+             
+
+            }
+
+            .outerlist {
+                position: relative;
+
+                .innerlistes {
+                    height: 120px;
+                    position: absolute;
+                    top: 100%;
+                    padding: 15px;
+
+
+
+
+                    .innerliste {
+                        height: 30px;
+                        list-style: none;
+                        border-radius: 20px;
+                        padding: 0px 10px 0px 10px;
+                        display: flex;
+                        align-items: center;
+
+                        a{
+                            text-decoration: none;
+                        }
+
+                        &:hover {
+                            background: $topdivbg;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottomlists {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0;
+
+            .bottomlist {
+                list-style: none;
+                height: 30px;
+                font-size: 19px;
+                padding: 0px 0px 0px 30px;
+            }
+
+            .arrow {
+                height: 40px;
+                padding: 0;
+                color: $test2;
+
+                background: $topdivbg;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;   
+            }
+        }
+    }
+
+
+
+
+}
+
+.slidercontaineropen {
+    height: 100%;
+    width: 350px;
+    background: $bgcolor;
+    color: $textcolor;
+    border: 1px solid black;
+    position: absolute;
+    top: 0%;
+    z-index: 1000000;
+    transform: translateX(0%);
+    transition: all 0.6s linear;
+
+    .closebox {
+        height: 200px;
+        font-size: 30px;
+        background: $topdivbg;
+        position: relative;
+
+        span {
+            position: absolute;
+            right: 6%;
+            top: 1%;
+        }
+
+        .userdetail {
+            font-size: 18px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            color: $test2;
+
+
+            .name {
+                margin: 0;
+            }
+
+            .warehouse {
+                margin: 0;
+            }
+
+        }
+
+        .imgdiv {
+            height: 115px;
+            width: 115px;
+            background:linear-gradient(white,rgb(66, 66, 66));
+            border: 6px solid rgb(73, 73, 73);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -30%;
+            left: 50%;
+            transform: translate(-50%);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: 40px;
+                width: 100px;
+                // border:2px solid red;
+
+            }
+        }
+    }
+
+
+    .bottomdiv {
+        height: 445px;
+        margin-top: 60px;
+        width: 100%;
+
+        .listitems {
+            margin: 0%;
+            padding: 0;
+
+
+            .listitem {
+                list-style: none;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                border-radius: 20px;
+                padding: 0px 0px 0px 10px;
+                transition: all 0.5 linear;
+                cursor: pointer;
+
+                &:hover {
+                    background: #fff;
+                }
+                a{
+                    text-decoration: none;
+                    color:rgb(39, 39, 52);
+                    font-size: 16px;
+                                    }
+            }
+
+            .outerlist {
+                position: relative;
+
+                .innerlistes {
+                    height: 120px;
+                    position: absolute;
+                    top: 100%;
+                    padding: 15px;
+
+
+
+
+                    .innerliste {
+                        height: 30px;
+                        list-style: none;
+                        border-radius: 20px;
+                        padding: 0px 10px 0px 10px;
+                        display: flex;
+                        align-items: center;
+
+                        a{
+                            text-decoration: none;
+                            
+                        }
+
+
+                        &:hover {
+                            background: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottomlists {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0;
+
+            .bottomlist {
+                list-style: none;
+                height: 30px;
+                font-size: 19px;
+                padding: 0px 0px 0px 30px;
+            }
+
+            .arrow {
+                height: 40px;
+                padding: 0;
+                color: $test2;
+                background: $topdivbg;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+
+               
+            }
+        }
+    }
+
+    #a{
+        color:rgb(39, 39, 52);
+        font-weight: 600;
+    }
+
+}
+@media screen and (max-width:400px) {
+
+    .slidercontaineropen {
+        width: 330px;
+    }
+}
+
+
+@media screen and (max-width:350px) {
+
+    .slidercontaineropen {
+        width: 300px;
+    }
+}
+@media screen and (max-width:300px) {
+
+    .slidercontaineropen {
+        width: 100%;
+    }
+}
