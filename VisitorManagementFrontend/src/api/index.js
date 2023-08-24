@@ -13,7 +13,7 @@ export const VisiterEntry = async (entry_by, wharehouse, visitor_name, company_n
     return axios.post(url, { entry_by, wharehouse, visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark }).then(response => response.data).catch(error => console.log(error));
 }
 export const Allemployee = async (Warehouse) => {
-    const url = `http://localhost:2006/api/allemployee`
+    const url = `https://vmbackend.awlinternational.com/api/allemployee`
     return axios.post(url, { Warehouse }).then(response => response.data).catch(error => console.log(error));
 }
 export const UserLogin = async (uid_id, uid_pass) => {
@@ -41,7 +41,7 @@ export const EmployeeAlerts = async (Warehouse, UserID) => {
     return axios.post(url, { Warehouse, UserID }).then(response => response.data).catch(error => console.log(error));
 }
 export const VehicleEntry = async (docNo, vehNo, vehType, driverName, contactNo, remarks, wh, cust, entry_by, tpt_mode, inward_time, outward_Time) => {
-    const url = `http://localhost:2006/api/vehicleentry`
+    const url = `https://vmbackend.awlinternational.com/api/vehicleentry`
     return axios.post(url, { docNo, vehNo, vehType, driverName, contactNo, remarks, wh, cust, entry_by, tpt_mode, inward_time, outward_Time }).then(response => response.data).catch(error => console.log(error));
 }
 export const UploadData = async (images) => {
