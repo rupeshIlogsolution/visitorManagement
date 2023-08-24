@@ -9,12 +9,10 @@ function VehicleOut() {
   const [Vehicledata, setVehicledata] = useState([]);
 
 
-
   useEffect(() => {
     async function fetchMyAPI() {
       const result = await DedicatedVehicleOutStatus(localStorage.getItem('warehouseId'), localStorage.getItem('vehicleNum'))
       setVehicledata(result)
-      console.log(result)
     }
     fetchMyAPI()
   }, [])
@@ -36,7 +34,7 @@ function VehicleOut() {
       let Returnentryby = localStorage.getItem('userId')
       const update = await UpdateDedicatedVEhicle(wh, VEH_NO, return_time, return_reading, Returnentryby, remark, completed_touch_point)
       if (update === 'updated') {
-        alert('Data Updated');
+        alert('Data Save Successfully');
         window.location.href = './vehiclelogs'
       }
       else {

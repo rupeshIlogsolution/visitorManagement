@@ -116,7 +116,7 @@ const GuardsLogs = () => {
 
     const InsertGuardLogs = await InsertGuardLogin(locationId, Guardname, date, time, status, guardid, localStorage.getItem('userId'), locationName)
     if (InsertGuardLogs) {
-      alert("Guard Login")
+      alert("Guard Login Successfully")
       window.location.reload();
     } else {
       alert('Something went Wrong')

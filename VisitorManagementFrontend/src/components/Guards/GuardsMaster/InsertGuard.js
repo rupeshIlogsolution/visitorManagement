@@ -32,7 +32,6 @@ const InsertGuard = () => {
 
 
         const Vendor = await TotalVendor()
-        console.log(Vendor)
         setVendorlist(Vendor)
 
         var myDate = new Date();
@@ -53,14 +52,12 @@ const InsertGuard = () => {
     const handleChangestatus = (e) => {
         let data = e.target.value
         setShift(data)
-        console.log(data)
     }
     let options = vendorlist.map((ele) => {
         return { value: ele.Tid, label: ele.Tname };
     })
     const handleCustvendval = (e) => {
         setVendor(e)
-
     }
 
     const handleClick = async (e) => {
@@ -76,22 +73,14 @@ const InsertGuard = () => {
         const vendorname = vendor.label
         const Guardjoiningdate = document.getElementById('guardjoindate').value
         const dateofbirth = document.getElementById('dateofbirth').value
-        console.log(vendorid, vendorname)
-
-        console.log(Location, Guardname, Guardid, Phoneno, vendorid, vendorname, Guardjoiningdate, LocationName, dateofbirth, shift)
 
         const result = await insertguard(Location, Guardname, Guardid, Phoneno, vendorid, vendorname, Guardjoiningdate, LocationName, dateofbirth, shift)
-        console.log(result)
         if (result == 'Added') {
-            alert('Guard Added')
+            alert('Guard Added Successfully')
             window.location.href = '/TotalGuards'
         } else {
             alert('Invalid Entry')
         }
-        console.log(result)
-
-
-
     }
 
     return (

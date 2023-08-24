@@ -25,7 +25,7 @@ function GeneratorLog() {
         else {
             const result = await GeneratorEntry(localStorage.getItem('userName'), localStorage.getItem('warehouseId'), date, starttime, startreading, endtime, endreading)
             if (result) {
-                alert("Saved Successfully")
+                alert("Data Saved Successfully")
                 window.location.href = '/Dashboard';
             }
         }

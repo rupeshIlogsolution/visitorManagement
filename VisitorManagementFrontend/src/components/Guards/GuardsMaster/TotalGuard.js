@@ -112,7 +112,6 @@ const TotalGuards = () => {
   useEffect(() => {
     const totalposts = async () => {
       const result = await TotalGuard()
-      console.log(result)
       setData(result)
     };
     totalposts()

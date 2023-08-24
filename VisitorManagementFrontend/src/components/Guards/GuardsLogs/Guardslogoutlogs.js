@@ -132,7 +132,7 @@ const GuardsLogOut = () => {
 
     const InsertGuardLogs = await UpdateGuard(locationId, Guardname, date, time, status, guardid, localStorage.getItem('inputPassword'), locationName)
     if (InsertGuardLogs) {
-      alert("Guard Logout")
+      alert("Guard Logout Successfully")
       window.location.reload();
     } else {
       alert('Invalid Entry')

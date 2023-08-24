@@ -30,7 +30,7 @@ const DieselLog = () => {
         else {
             const result = await DieselEntry(localStorage.getItem('userName'), localStorage.getItem('warehouseId'), DATE, invoice_no, party_name, qtyin_liter, rate_per_liter, person_name, out_time, in_time, TotalAmount)
             if (result) {
-                alert("Saved Successfully")
+                alert("Data Saved Successfully")
                 window.location.href = '/Dashboard';
             }
         }

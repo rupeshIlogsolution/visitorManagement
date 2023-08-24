@@ -81,7 +81,7 @@ function Closewarehouse(prop) {
 
             <div className="card">
               <header className="card-header">
-                <h4 className="card-title mt-2">Enter Warehouse Closing Entry<MdLibraryBooks style={{margin:"0 0 4px 4px"}}/></h4>
+                <h4 className="card-title mt-2 text-light">Enter Warehouse Closing Entry<MdLibraryBooks style={{margin:"0 0 4px 4px"}}/></h4>
               </header>
 
               {/* {loading?( */}

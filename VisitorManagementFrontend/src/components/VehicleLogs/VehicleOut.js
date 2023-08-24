@@ -28,7 +28,7 @@ function VehicleOut() {
       let StartEntryBy= localStorage.getItem('userId')
       const insert = await InsertDedicatedVEhicle(wh,VEH_NO,outdate,start_time,start_reading,StartEntryBy,remark,touch_point,leave)
       if (insert === 'inserted') {
-        alert('Data Inserted')
+        alert('Data Save Successfully')
         window.location.href='./vehiclelogs'
       }
       else {

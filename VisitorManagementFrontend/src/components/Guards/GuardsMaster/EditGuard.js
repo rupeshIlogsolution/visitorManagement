@@ -58,7 +58,6 @@ const EditGuard = () => {
     const handleChangestatus = (e) => {
         let data = e.target.value
         setShift(data)
-        console.log(data)
     }
     let options = vendorlist.map((ele) => {
         return { value: ele.Tid, label: ele.Tname };
@@ -76,12 +75,10 @@ const EditGuard = () => {
         const dateofbirth = document.getElementById('dateofbirth').value
         // console.log( vendorname)
 
-        console.log( Guardname, Phoneno, Guardjoiningdate, dateofbirth, shift)
 
         const result = await updateGuardDetails(sessionStorage.getItem('getGuard'),Guardname,Phoneno,Guardjoiningdate,dateofbirth,shift)
-        console.log(result)
         if (result == 'Updated') {
-            alert('Guard Updated')
+            alert('Guard Data Updated Successfully')
             sessionStorage.removeItem('getGuard');
 
             window.location.href = '/TotalGuards'

@@ -103,9 +103,7 @@ const GuardsHistory = () => {
       if (day < 10) day = "0" + day;
     //   var startDate = year + "-" + month + "-" + "01";
       var endDate = year + "-" + month + "-" + day;
-      console.log(endDate)
       const result = await TotalGuardsHistory(endDate,endDate)
-      console.log(result)
       setData(result)
     }
     totalposts()
@@ -118,11 +116,9 @@ const GuardsHistory = () => {
     const val2 = Moment(e[1]).format("YYYY-MM-DD");
     // const arry = [val1, val2];
     setToggle(false)
-    console.log(val1,val2)
 
     const response = await TotalGuardsHistory(val1,val2)
     setData(response)
-    console.log(response)
     // if(response){
     //   setLoading(false);
     // }
