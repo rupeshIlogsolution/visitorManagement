@@ -16,6 +16,9 @@ const VendorController = require('../controller/Vendor/Vendor')
 const GuardHistoryController = require('../controller/Guards/GuardHistory')
 const VehicleMasterController = require('../controller/VehicleMaster')
 
+// const Gen_chec_uuidController= require('../controller/CheckRouteKey')
+const GenerateQR= require('../controller/CheckRouteKey')
+
 
 router.post('/generatorentry', GeneratorController.GeneratorEntry)
 router.post('/dieselentry', DieselController.DieselEntry)
@@ -55,6 +58,9 @@ router.post('/dedicatedvehiclestatus', VehicleMasterController.DedicatedVehicleS
 router.post('/insertdedicatedVEhicle', VehicleMasterController.InsertDedicatedVEhicle)
 router.post('/dedicatedvehicleoutstatus', VehicleMasterController.DedicatedVehicleOutStatus)
 router.post('/updatededicatedVEhicle', VehicleMasterController.UpdateDedicatedVEhicle)
+// router.post('/CheckRouteKey',Gen_chec_uuidController.CheckRouteKey)
+router.post('/generateQR',GenerateQR.GenerateQR)
+// router.post('/generateuuid',Gen_chec_uuidController.GenerateUuid)
 
 
 

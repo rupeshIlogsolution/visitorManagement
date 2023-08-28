@@ -1,82 +1,81 @@
 import './dashboard.scss';
 import Home from '../Home';
-import { DashboardWarehouseStatus, DashboardVisitorStatus, DashboardVehicleInStatus, DashboardVehicleOutStatus, DashboardDieselLitreMonth, DashboardDieselAmountMonth, DashboardGeneratorInstanceMonth, DashboardGeneratorTotalUnitMonth } from '../../api/index'
+// import { DashboardWarehouseStatus, DashboardVisitorStatus, DashboardVehicleInStatus, DashboardVehicleOutStatus, DashboardDieselLitreMonth, DashboardDieselAmountMonth, DashboardGeneratorInstanceMonth } from '../../api/index'
 import React, { useEffect, useState } from 'react';
 import Footer from '../footer/Footer';
 
 
 
 const Dashboard = () => {
-    const [warehouseStatus, setWarehouseStatus] = useState()
-    const [visitorToday, setVisitorToday] = useState()
-    const [visitorMonth, setVisitorMonth] = useState()
-    const [vehicleInToday, setVehicleInToday] = useState()
-    const [vehicleInMonth, setVehicleInMonth] = useState()
-    const [vehicleOutToday, setVehicleOutToday] = useState()
-    const [vehicleOutMonth, setVehicleOutMonth] = useState()
-    const [dieselLitremonth, setDieselLitreMonth] = useState()
-    const [dieselAmountmonth, setDieselAmountMonth] = useState()
-    const [average, setAverage] = useState()
-    const [generatorinstance, setGeneratorInstance] = useState()
-    const [generatortotalunit, setGeneratorTotalUnit] = useState()
+    // const [warehouseStatus, setWarehouseStatus] = useState()
+    // const [visitorToday, setVisitorToday] = useState()
+    // const [visitorMonth, setVisitorMonth] = useState()
+    // const [vehicleInToday, setVehicleInToday] = useState()
+    // const [vehicleInMonth, setVehicleInMonth] = useState()
+    // const [vehicleOutToday, setVehicleOutToday] = useState()
+    // const [vehicleOutMonth, setVehicleOutMonth] = useState()
+    // const [dieselLitremonth, setDieselLitreMonth] = useState()
+    // const [dieselAmountmonth, setDieselAmountMonth] = useState()
+    // const [average, setAverage] = useState()
+    // const [generatorinstance, setGeneratorInstance] = useState()
+    // const [generatortotalunit, setGeneratorTotalUnit] = useState()
 
 
+    // useEffect(async () => {
+    //     var myDate = new Date();
+    //     var day = myDate.getDate();
+    //     var month = myDate.getMonth() + 1;
+    //     var year = myDate.getFullYear();
+    //     if (month < 10) month = "0" + month;
+    //     if (day < 10) day = "0" + day;
+    //     var Today = year + "-" + month + "-" + day;
+    //     const startDate = year + "-" + month + "-" + 1
+    //     var lastdate = year + "-" + month + "-" + myDate.getDate(0)
 
-    useEffect(async () => {
-        var myDate = new Date();
-        var day = myDate.getDate();
-        var month = myDate.getMonth() + 1;
-        var year = myDate.getFullYear();
-        if (month < 10) month = "0" + month;
-        if (day < 10) day = "0" + day;
-        var Today = year + "-" + month + "-" + day;
-        const startDate = year + "-" + month + "-" + 1
-        var lastdate = year + "-" + month + "-" + myDate.getDate(0)
+    //     // const GeneratorTotalUnitMonth = await DashboardGeneratorTotalUnitMonth(startDate, lastdate, localStorage.getItem('warehouseId'))
+    //     // setGeneratorTotalUnit(GeneratorTotalUnitMonth.Totalunit)
 
-        const GeneratorTotalUnitMonth = await DashboardGeneratorTotalUnitMonth(startDate, lastdate, localStorage.getItem('warehouseId'))
-        setGeneratorTotalUnit(GeneratorTotalUnitMonth.Totalunit)
+    //     const DieselLitre = await DashboardDieselLitreMonth(startDate, lastdate, localStorage.getItem('warehouseId'))
+    //     setDieselLitreMonth(DieselLitre.Totalliters)
 
-        const DieselLitre = await DashboardDieselLitreMonth(startDate, lastdate, localStorage.getItem('warehouseId'))
-        setDieselLitreMonth(DieselLitre.Totalliters)
+    //     const DieselAmount = await DashboardDieselAmountMonth(startDate, lastdate, localStorage.getItem('warehouseId'))
+    //     setDieselAmountMonth(DieselAmount.TOTALAMNT)
+    //     if (DieselAmount.TOTALAMNT === 0) {
+    //         setAverage(0)
+    //     } else {
+    //         setAverage(DieselLitre.Totalliters / DieselAmount.TOTALAMNT)
+    //     }
 
-        const DieselAmount = await DashboardDieselAmountMonth(startDate, lastdate, localStorage.getItem('warehouseId'))
-        setDieselAmountMonth(DieselAmount.TOTALAMNT)
-        if (DieselAmount.TOTALAMNT === 0) {
-            setAverage(0)
-        } else {
-            setAverage(DieselLitre.Totalliters / DieselAmount.TOTALAMNT)
-        }
+    //     const GeneratorInstance = await DashboardGeneratorInstanceMonth(startDate, lastdate, localStorage.getItem('warehouseId'))
+    //     setGeneratorInstance(GeneratorInstance.Instance)
 
-        const GeneratorInstance = await DashboardGeneratorInstanceMonth(startDate, lastdate, localStorage.getItem('warehouseId'))
-        setGeneratorInstance(GeneratorInstance.Instance)
+    //     const VehicleInstatusToday = await DashboardVehicleInStatus(Today, Today, localStorage.getItem('warehouseId'))
+    //     setVehicleInToday(VehicleInstatusToday.Noofvehicle)
 
-        const VehicleInstatusToday = await DashboardVehicleInStatus(Today, Today, localStorage.getItem('warehouseId'))
-        setVehicleInToday(VehicleInstatusToday.Noofvehicle)
+    //     const VehicleInstatusMonth = await DashboardVehicleInStatus(startDate, lastdate, localStorage.getItem('warehouseId'))
+    //     setVehicleInMonth(VehicleInstatusMonth.Noofvehicle)
 
-        const VehicleInstatusMonth = await DashboardVehicleInStatus(startDate, lastdate, localStorage.getItem('warehouseId'))
-        setVehicleInMonth(VehicleInstatusMonth.Noofvehicle)
+    //     const VehicleOutstatusToday = await DashboardVehicleOutStatus(Today, Today, localStorage.getItem('warehouseId'))
+    //     setVehicleOutToday(VehicleOutstatusToday.Noofvehicle)
 
-        const VehicleOutstatusToday = await DashboardVehicleOutStatus(Today, Today, localStorage.getItem('warehouseId'))
-        setVehicleOutToday(VehicleOutstatusToday.Noofvehicle)
+    //     const VehicleOutstatusMonth = await DashboardVehicleOutStatus(startDate, lastdate, localStorage.getItem('warehouseId'))
+    //     setVehicleOutMonth(VehicleOutstatusMonth.Noofvehicle)
 
-        const VehicleOutstatusMonth = await DashboardVehicleOutStatus(startDate, lastdate, localStorage.getItem('warehouseId'))
-        setVehicleOutMonth(VehicleOutstatusMonth.Noofvehicle)
-
-        const VisiltorToday = await DashboardVisitorStatus(Today, Today, localStorage.getItem('warehouseId'))
-        setVisitorToday(VisiltorToday.Noofvisitor)
+    //     const VisiltorToday = await DashboardVisitorStatus(Today, Today, localStorage.getItem('warehouseId'))
+    //     setVisitorToday(VisiltorToday.Noofvisitor)
 
 
-        const VisiltorMonth = await DashboardVisitorStatus(startDate, lastdate, localStorage.getItem('warehouseId'))
-        setVisitorMonth(VisiltorMonth.Noofvisitor)
+    //     const VisiltorMonth = await DashboardVisitorStatus(startDate, lastdate, localStorage.getItem('warehouseId'))
+    //     setVisitorMonth(VisiltorMonth.Noofvisitor)
 
-        const warehouselogs = await DashboardWarehouseStatus(Today, localStorage.getItem('warehouseId'))
-        if (warehouselogs.msg_flag == "open") {
-            setWarehouseStatus(' Warehouse Opened on ' + warehouselogs.Date + ' at ' + warehouselogs.openingat + 'AM')
-        } else {
-            setWarehouseStatus('Warehouse Closed on ' + warehouselogs.Date + ' at ' + warehouselogs.closegat + 'PM')
-        }
+    //     const warehouselogs = await DashboardWarehouseStatus(Today, localStorage.getItem('warehouseId'))
+    //     if (warehouselogs.msg_flag == "open") {
+    //         setWarehouseStatus(' Warehouse Opened on ' + warehouselogs.Date + ' at ' + warehouselogs.openingat + 'AM')
+    //     } else {
+    //         setWarehouseStatus('Warehouse Closed on ' + warehouselogs.Date + ' at ' + warehouselogs.closegat + 'PM')
+    //     }
 
-    }, [])
+    // }, [])
     return (
         <>
             <div className="dashboardcont">

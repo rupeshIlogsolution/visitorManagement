@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import NavPage from '../../Navbar/NavBar';
 // import Homefooter from '../../footer/footer';
-import { updateGuardDetails,SelectedGuards } from '../../../api/index'
+import { updateGuardDetails, SelectedGuards } from '../../../api/index'
 import Home from '../../Home'
 import Select from 'react-select';
 
@@ -26,28 +26,19 @@ const EditGuard = () => {
     const [vendorlist, setVendorlist] = useState([])
     const [vendor, setVendor] = useState()
 
-    const [GuardData,setGuardData] = useState({})
+    const [GuardData, setGuardData] = useState({})
 
     useEffect(async () => {
-    
-
         const guardlist = await SelectedGuards(sessionStorage.getItem('getGuard'))
-        console.log(guardlist)
         setGuardData(guardlist[0])
         setNumber(guardlist[0].Phoneno)
-        if(guardlist[0].Shift == 'Day'){
+        if (guardlist[0].Shift == 'Day') {
             document.getElementById('Day').checked = true;
             setShift(guardlist[0].Shift)
-        }else{
+        } else {
             document.getElementById('Night').checked = true;
             setShift(guardlist[0].Shift)
         }
-
-
-      
-
-
-
     }, [])
 
     const handleChange = (e) => {
@@ -62,7 +53,7 @@ const EditGuard = () => {
     let options = vendorlist.map((ele) => {
         return { value: ele.Tid, label: ele.Tname };
     })
-   
+
 
     const handleClick = async (e) => {
         e.preventDefault();
@@ -70,24 +61,20 @@ const EditGuard = () => {
 
         const Guardname = document.getElementById('guardname').value
         const Phoneno = document.getElementById('phoneno').value
-       
+
         const Guardjoiningdate = document.getElementById('guardjoindate').value
         const dateofbirth = document.getElementById('dateofbirth').value
         // console.log( vendorname)
 
 
-        const result = await updateGuardDetails(sessionStorage.getItem('getGuard'),Guardname,Phoneno,Guardjoiningdate,dateofbirth,shift)
+        const result = await updateGuardDetails(sessionStorage.getItem('getGuard'), Guardname, Phoneno, Guardjoiningdate, dateofbirth, shift)
         if (result == 'Updated') {
             alert('Guard Data Updated Successfully')
             sessionStorage.removeItem('getGuard');
-
             window.location.href = '/TotalGuards'
         } else {
             alert('Invalid Entry')
         }
-
-
-
     }
 
     return (
@@ -110,12 +97,12 @@ const EditGuard = () => {
 
                                         <div className="form-group col-md-6" style={{ marginBottom: "-1px" }}>
                                             <label htmlFor="Invoice_Amount">Vendor Name <span style={{ color: "red" }}>*</span></label>
-                                            <input className="form-control" disabled type="text" id="vendname" value={GuardData.Vendorname}/>
-                   
+                                            <input className="form-control" disabled type="text" id="vendname" value={GuardData.Vendorname} />
+
                                         </div>
                                         <div className="form-group col-md-6" style={{ marginBottom: "-1px" }} >
                                             <label htmlFor="Invoice_Amount">Location <span style={{ color: "red" }}>*</span></label>
-                                            <input className="form-control" disabled type="text" id="vendname" value={GuardData.locationname}/>
+                                            <input className="form-control" disabled type="text" id="vendname" value={GuardData.locationname} />
 
                                             {/* <select style={{ border: "none", borderBottom: "3px solid #5c5b5c", background: "none", borderRadius: "5px" }} className="form-select w-100 p-2" id="location">
                                                 <option selected value="" hidden>Select Location</option>
@@ -149,7 +136,7 @@ const EditGuard = () => {
 
                                             <div className="form-group col-md-6">
                                                 <label htmlFor="Invoice_Amount">Date Of Birth <span style={{ color: "red", }}>*</span></label>
-                                                <input className="form-control" type="date" id="dateofbirth" defaultValue={GuardData.dateofbirth}/>
+                                                <input className="form-control" type="date" id="dateofbirth" defaultValue={GuardData.dateofbirth} />
                                             </div>
 
                                             <div className="form-group col-md-6">

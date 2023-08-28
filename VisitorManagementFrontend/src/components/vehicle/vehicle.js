@@ -17,12 +17,12 @@ function Vehicle() {
     const vechicleTypeOption = ["14 Ft", "17 Ft", "18/19 Ft", "20 Ft", "20 Ft CNTR", "20 Ft Trailer", "22 Ft", "24 Ft", "28 Ft", "32 Ft", "32 Ft MA", "Ca40 Ft CNTRr", "40 Ft HQ", "40 Ft Trailer", "45 Ft CNTR", "55 Ft", "909", "Biker", "By Hand", "By Train", "Champion", "Courier", "ECCO", "Mahindra Pickup", "Minimum", "Omni", "TATA 407", "TATA 608", "TATA ACE", "TAXI"]
     const handleChangeEntryType = (e) => {
         if (e.target.value === 'Dispatch') {
-            document.getElementById('inwardTimeDiv').style.display = 'none'
-            document.getElementById('outwardTimeDiv').style.display = 'block'
+            // document.getElementById('inwardTimeDiv').style.display = 'none'
+            document.getElementById('outwardtime').style.display = 'block'
         }
         else if (e.target.value === 'Receipt') {
-            document.getElementById('outwardTimeDiv').style.display = 'none'
-            document.getElementById('inwardTimeDiv').style.display = 'block'
+            document.getElementById('outwardtime').style.display = 'none'
+            // document.getElementById('inwardTimeDiv').style.display = 'block'
         }
     }
     const handleDisableError = (fieldType) => {
@@ -35,7 +35,9 @@ function Vehicle() {
         // document.getElementById('submitBtn').disabled = true
         const EntryType = document.getElementById('entry_type').value;
         let inward_time = document.getElementById('inward_time').value;
+        inward_time=inward_time.replace("T", " ")
         let outward_Time = document.getElementById('outward_time').value;
+        outward_Time=outward_Time.replace("T", " ")
         const Document_no = document.getElementById('Document_no').value;
         const PartyName = document.getElementById('party_name').value;
         const Vehicle_no = document.getElementById('vehicle_no').value;
@@ -43,6 +45,8 @@ function Vehicle() {
         const driver_name = document.getElementById('driver_name').value;
         const contact_no = document.getElementById('contact_no').value;
         const remark = document.getElementById('remark').value;
+        const whId = localStorage.getItem('warehouseId');
+        const userName = localStorage.getItem('userName');
 
         if (!PartyName || !Vehicle_no || !vehicle_type || !driver_name || !contact_no) {
             if (!PartyName) { setMandatoryfield({ ...mandatoryfield, partyName: true }) }
@@ -52,10 +56,12 @@ function Vehicle() {
             else if (!contact_no) { setMandatoryfield({ ...mandatoryfield, contactNo: true }) }
         }
         else {
-            if (EntryType === 'Dispatch') { inward_time = '' }
-            else { outward_Time = '' }
+            if (EntryType === 'Receipt') { outward_Time = '' }
+            console.log(Document_no, Vehicle_no, vehicle_type, driver_name, contact_no, remark, whId,
+                PartyName,userName, EntryType, inward_time, outward_Time)
 
-            const result = await VehicleEntry(Document_no, Vehicle_no, vehicle_type, driver_name, contact_no, remark, localStorage.getItem('warehouseId'), PartyName, localStorage.getItem('userName'), EntryType, inward_time, outward_Time)
+            const result = await VehicleEntry(Document_no, Vehicle_no, vehicle_type, driver_name, contact_no, remark, whId,
+                PartyName,userName, EntryType, inward_time, outward_Time)
             if (result) {
                 alert("Entry Done Successfully")
                 window.location.href = '/Dashboard';
@@ -84,12 +90,13 @@ function Vehicle() {
                                             </select>
                                         </div>
                                         <div className="form-group col-md-6" id='inwardTimeDiv'>
-                                            <label htmlFor='inward_time'>Receipt Time</label>
-                                            <input type="time" className="form-control" id="inward_time" style={{ marginLeft: "-10px", width: "103%" }} />
+                                            <label htmlFor='inward_time'>Receipt Date & Time</label>
+                                            <input type="datetime-local" className="form-control" id="inward_time" style={{ marginLeft: "-10px", width: "103%" }} />
                                         </div>
-                                        <div className="form-group col-md-6" id='outwardTimeDiv' style={{ display: 'none' }}>
-                                            <label htmlFor='outward_time'>Dispatch Time</label>
-                                            <input type="time" className="form-control" id="outward_time" style={{ marginLeft: "-10px", width: "103%" }} />
+
+                                        <div className="form-group col-md-6" id='outwardtime' style={{ display: 'none' }}>
+                                            <label htmlFor='outward_time'>Dispatch Date & Time</label>
+                                            <input type="datetime-local" className="form-control" id="outward_time" style={{ marginLeft: "-10px", width: "103%" }} />
                                         </div>
                                     </div>
                                     <div className='row' style={{ marginTop: "-10px" }} >

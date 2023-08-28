@@ -8,9 +8,9 @@ export const DieselEntry = async (entry_by, warehouse, DATE, invoice_no, party_n
     const url = `https://vmbackend.awlinternational.com/api/dieselentry`
     return axios.post(url, { entry_by, warehouse, DATE, invoice_no, party_name, qtyin_liter, rate_per_liter, person_name, out_time, in_time, TotalAmount }).then(response => response.data).catch(error => console.log(error));
 }
-export const VisiterEntry = async (entry_by, wharehouse, visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark) => {
+export const VisiterEntry = async (user_name, wh_id, visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark, visitor_entry_date, purpose, idPhotoUrl, visitorPhotoUrl) => {
     const url = `https://vmbackend.awlinternational.com/api/visiterentry`
-    return axios.post(url, { entry_by, wharehouse, visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark }).then(response => response.data).catch(error => console.log(error));
+    return axios.post(url, { user_name, wh_id, visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark, visitor_entry_date, purpose, idPhotoUrl, visitorPhotoUrl }).then(response => response.data).catch(error => console.log(error));
 }
 export const Allemployee = async (Warehouse) => {
     const url = `https://vmbackend.awlinternational.com/api/allemployee`
@@ -41,11 +41,11 @@ export const EmployeeAlerts = async (Warehouse, UserID) => {
     return axios.post(url, { Warehouse, UserID }).then(response => response.data).catch(error => console.log(error));
 }
 export const VehicleEntry = async (docNo, vehNo, vehType, driverName, contactNo, remarks, wh, cust, entry_by, tpt_mode, inward_time, outward_Time) => {
-    const url = `https://vmbackend.awlinternational.com/api/vehicleentry`
+    const url = `http://localhost:2006/api/vehicleentry`
     return axios.post(url, { docNo, vehNo, vehType, driverName, contactNo, remarks, wh, cust, entry_by, tpt_mode, inward_time, outward_Time }).then(response => response.data).catch(error => console.log(error));
 }
 export const UploadData = async (images) => {
-    const url = `https://vmbackend.awlinternational.com/api/FileUpload`
+    const url = `http://localhost:2006/api/FileUpload`
     return axios.post(url, images).then(res => res.data).catch(err => console.log(err))
 }
 export const DashboardWarehouseStatus = async (date, warehouseid) => {
@@ -76,10 +76,10 @@ export const DashboardGeneratorInstanceMonth = async (startdate, enddate, wareho
     const url = `https://vmbackend.awlinternational.com/api/dashboardgeneratorinstancemonth`
     return axios.post(url, { startdate, enddate, warehouseid }).then(res => res.data).catch(err => console.log(err))
 }
-export const DashboardGeneratorTotalUnitMonth = async (startdate, enddate, warehouseid) => {
-    const url = `https://vmbackend.awlinternational.com/api/dashboardgeneratortotalunitmonth`
-    return axios.post(url, { startdate, enddate, warehouseid }).then(res => res.data).catch(err => console.log(err))
-}
+// export const DashboardGeneratorTotalUnitMonth = async (startdate, enddate, warehouseid) => {
+//     const url = `https://vmbackend.awlinternational.com/api/dashboardgeneratortotalunitmonth`
+//     return axios.post(url, { startdate, enddate, warehouseid }).then(res => res.data).catch(err => console.log(err))
+// }
 
 // Guards //
 
@@ -154,3 +154,16 @@ export const UpdateDedicatedVEhicle = async (wh, VEH_NO, Returntime, Returnreadi
     const url = `https://vmbackend.awlinternational.com/api/updatededicatedVEhicle`
     return axios.post(url, { wh, VEH_NO, Returntime, Returnreading, Returnentryby, remarks, CompleteTouchPoint }).then(response => response.data).catch(error => console.log(error));
 }
+
+// export const CheckRouteKey = async (uuid) => {
+//     const url = `http://localhost:2006/api/CheckRouteKey`
+//     return axios.post(url, { uuid }).then(response => response.data).catch(err => err.response.data)
+// }
+export const GenerateQR = async (whid) => {
+    const url = `http://localhost:2006/api/generateQR`
+    return axios.post(url, {whid}).then(response => response.data).catch(err => err.response.data)
+}
+// export const GenerateUuid = async () => {
+//     const url = `http://localhost:2006/api/generateuuid`
+//     return axios.post(url, {}).then(response => response.data).catch(err => err.response.data)
+// }

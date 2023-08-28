@@ -16,9 +16,11 @@ import EditGuard from './components/Guards/GuardsMaster/EditGuard'
 import VehicleLogs from './components/VehicleLogs/VehicleLogs';
 import VehicleIn from './components/VehicleLogs/VehicleIn';
 import VehicleOut from './components/VehicleLogs/VehicleOut';
-
+import PublicVisitor from './components/PublicVisitor/PublicVisitor';
+import Page404 from './components/Page404/Page404'
 
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import QrCodePage from './components/PublicVisitor/QrcodePage';
 function App() {
   return (
     <div className="App">
@@ -32,18 +34,21 @@ function App() {
           <PrivatRoute exact path="/Warehouse" component={Warehouse} />
           <PrivatRoute exact path="/Vehicle" component={Vehicle} />
 
-          <Route expact path="/InsertGuard" component={InsertGuard} />
-          <Route expact path="/EditGuard" component={EditGuard} />
+          <PrivatRoute expact path="/InsertGuard" component={InsertGuard} />
+          <PrivatRoute expact path="/EditGuard" component={EditGuard} />
 
-          <Route expact path="/TotalGuards" component={TotalGuards} />
-          <Route expact path="/guardslogs" component={GuardsLogs} />
-          <Route expact path="/guardslogout" component={GuardsLogOut} />
-          <Route expact path="/guardshistory" component={GuardsHistory} />
-          <Route expact path="/vehiclelogs" component={VehicleLogs} />
+          <PrivatRoute expact path="/TotalGuards" component={TotalGuards} />
+          <PrivatRoute expact path="/guardslogs" component={GuardsLogs} />
+          <PrivatRoute expact path="/guardslogout" component={GuardsLogOut} />
+          <PrivatRoute expact path="/guardshistory" component={GuardsHistory} />
+          <PrivatRoute expact path="/vehiclelogs" component={VehicleLogs} />
 
-          <Route expact path="/vehicleIn" component={VehicleIn} />
-          <Route expact path="/vehicleOut" component={VehicleOut} />
-
+          <PrivatRoute expact path="/vehicleIn" component={VehicleIn} />
+          <PrivatRoute expact path="/vehicleOut" component={VehicleOut} />
+          <PrivatRoute exact path="/QrCodePage" component={QrCodePage}/>
+          <Route expact path="/visitorentry/:urlKey" component={PublicVisitor} />
+          <Route exact path='*' component={Page404}/>
+          
         </Switch>
       </Router>
 

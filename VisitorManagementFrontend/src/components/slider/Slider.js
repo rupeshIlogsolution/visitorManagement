@@ -9,7 +9,8 @@ import Truck from '../../images/truck.svg';
 import { ImHome, ImEnter } from 'react-icons/im';
 import { FaTruck, FaBook } from 'react-icons/fa';
 import { AiFillCaretDown } from 'react-icons/ai';
-import { TbLogout } from 'react-icons/tb';
+import { TbLogout, TbQrcode } from 'react-icons/tb';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Slider({ slider, openSidebar }) {
     const [show, setShow] = useState(false)
@@ -53,38 +54,38 @@ function Slider({ slider, openSidebar }) {
                 <div className="bottomdiv">
                     <ul className="listitems">
                         <li className="listitem">
-                            <a href='Dashboard'><ImHome style={{ margin: '0 10px 6px 2px' }} />Home</a>
+                            <Link href='/Dashboard'><ImHome style={{ margin: '0 10px 6px 2px' }} />Home</Link>
                         </li>
                         <li className="listitem">
-                            <a href="VisitorLogBook" ><ImEnter style={{ margin: '0 9px 6px 0' }} />Visitor Entry</a>
+                            <Link href="/VisitorLogBook" ><ImEnter style={{ margin: '0 9px 6px 0' }} />Visitor Entry</Link>
                         </li>
                         <li className="listitem">
-                            <a href="Vehicle"><FaTruck style={{ margin: '0 8px 6px 2px' }} />Vehicle Entry</a>
+                            <Link href="/Vehicle"><FaTruck style={{ margin: '0 8px 6px 2px' }} />Vehicle Entry</Link>
                         </li>
                         <li className="listitem outerlist" onClick={togglediv}>
                             <a><FaBook style={{ margin: '0 9px 6px 2px' }} />LogBook<AiFillCaretDown style={{ margin: '0 10px 0 4px' }} /></a>
                             {show &&
                                 <ul className="innerlistes pt-0" >
-                                    <a href="/GeneratorLogBook">
+                                    <Link to="/GeneratorLogBook">
                                         <li className="innerliste mt-0">
                                             Generator LogBook
                                         </li>
-                                    </a>
-                                    <a href="/DieselLog">
+                                    </Link>
+                                    <Link to="/DieselLog">
                                         <li className="innerliste" style={{ width: "100%" }}>
                                             Desiel LogBook
                                         </li>
-                                    </a>
-                                    <a href="Warehouse">
+                                    </Link>
+                                    <Link to="/Warehouse">
                                         <li className="innerliste">
                                             Warehouse LogBook
                                         </li>
-                                    </a>
-                                    <a href="vehiclelogs">
+                                    </Link>
+                                    <Link to="/vehiclelogs">
                                         <li className="innerliste">
                                             Vehicle LogBook
                                         </li>
-                                    </a>
+                                    </Link>
                                 </ul>
                             }
                         </li>
@@ -95,17 +96,15 @@ function Slider({ slider, openSidebar }) {
                             <a><FaBook style={{ margin: '0 9px 6px 2px' }} />Guard<AiFillCaretDown style={{ margin: '0 10px 0 4px' }} /></a>
                             {showguards &&
                                 <ul className="innerlistes pt-0">
-                                    <a id="toogleGuard" style={{ display: "none" }} href="/TotalGuards"><li className="innerliste">
-                                        Show Guards</li></a>
-                                    <a href="/guardslogs"> <li className="innerliste" style={{ width: "100%" }}>
-                                        Guard Login</li></a>
-                                    <a href="guardslogout"><li className="innerliste">
-                                        Guard Logout</li></a>
+                                    <Link id="toogleGuard" style={{ display: "none" }} to="/TotalGuards"><li className="innerliste"> Show Guards</li></Link>
+                                    <Link to="/guardslogs"> <li className="innerliste" style={{ width: "100%" }}> Guard Login</li></Link>
+                                    <Link to="guardslogout"><li className="innerliste">Guard Logout</li></Link>
                                 </ul>
                             }
                         </li>
                     </ul>
                     <ul className="bottomlists">
+                        <li className="bottomlist arrow"><Link to='/QrCodePage' className='text-white'>Generate QrCode <TbQrcode style={{ margin: "2px 6px 2px 4px", fontSize: "21px" }} /></Link>  </li>
                         <li className="bottomlist arrow" onClick={handlelogout} > Logout <TbLogout style={{ margin: "2px 6px 2px 4px", fontSize: "21px" }} /></li>
                     </ul>
                 </div>

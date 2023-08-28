@@ -2,22 +2,26 @@ const sql = require('mssql')
 const sqlConfig = require('../config.js')
 
 const VisiterEntry = async (req, res) => {
-    const entry_by = req.body.entry_by;
-    const wharehouse = req.body.wharehouse;
+    const entry_by = req.body.user_name;
+    const wharehouse = req.body.wh_id;
     const visitor_name = req.body.visitor_name;
     const company_name = req.body.company_name;
     const email_id = req.body.email_id;
     const no_of_visitor = req.body.no_of_visitor;
     const meeting_with = req.body.meeting_with;
-    const contact_no = req.body.contact_no;
     const remark = req.body.remark;
-
+    const contact_no = req.body.contact_no;
+    const visitor_entry_date = req.body.visitor_entry_date;
+    const purpose = req.body.purpose;
+    const idPhotoUrl = req.body.idPhotoUrl;
+    const visitorPhotoUrl = req.body.visitorPhotoUrl;
+    
     try {
         await sql.connect(sqlConfig)
         const result = await sql.query(`insert into tbl_visitor_entry (entry_no,visitor_name,company_name,email_id,no_of_visitor,meeting_with,
-            contact_no,remark,warehouse,entry_by,entry_date,msgflag)
+            contact_no,remark,warehouse,entry_by,entry_date,msgflag,visitor_entry_date,purpose,visitor_id_url,visitor_photo_url)
             values ('','${visitor_name}','${company_name}','${email_id}',${no_of_visitor},'${meeting_with}',${contact_no},'${remark}','${wharehouse}','${entry_by}',getDate(),
-            '1');`)
+            '1','${visitor_entry_date}','${purpose}','${idPhotoUrl}','${visitorPhotoUrl}');`)
         res.send(result)
     }
     catch (err) {

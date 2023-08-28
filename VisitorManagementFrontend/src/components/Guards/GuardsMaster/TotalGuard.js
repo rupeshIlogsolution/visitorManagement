@@ -6,6 +6,7 @@ import DataTableExtensions from 'react-data-table-component-extensions';
 import 'react-data-table-component-extensions/dist/index.css';
 import Home from '../../Home'
 import {AiFillEdit} from 'react-icons/ai'
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 // import Homefooter from "../../footer/footer";
 
@@ -95,10 +96,10 @@ const columns = [
     sortable: false,
     selector: 'null',
     cell: (row) => [
-        <a title='Edit Asset' href="/EditGuard">
+        <Link title='Edit Asset' to="/EditGuard">
             <p onClick={() => sessionStorage.setItem('getGuard', `${row.ID}`)} >
                 <AiFillEdit style={{ fontSize: "20px", marginBottom: "-13px" }} />
-            </p></a>
+            </p></Link>
     ]
 }
 

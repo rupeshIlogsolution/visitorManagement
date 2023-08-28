@@ -42,31 +42,31 @@ function Closewarehouse(prop) {
       }
       else {
         alert('You have not Upload Image')
-    
+
       }
     }
   }
   const handleSendFile = async (e) => {
     // setLoading(true)
-    if(file.size){
+    if (file.size) {
 
-    document.getElementById('article').style.display="none"
+      document.getElementById('article').style.display = "none"
 
-    document.getElementById('loading').style.display="flex"
-    e.preventDefault()
-    const data = new FormData();
-    data.append("images", file)
-    const UploadLink = await UploadData(data)
-    console.log(UploadLink)
-    setUploadImage(UploadLink)
-    if(UploadLink){
-      document.getElementById('loading').style.display="none"
-      document.getElementById('article').style.display="block"    
+      document.getElementById('loading').style.display = "flex"
+      e.preventDefault()
+      const data = new FormData();
+      data.append("images", file)
+      const UploadLink = await UploadData(data)
+      console.log(UploadLink)
+      setUploadImage(UploadLink)
+      if (UploadLink) {
+        document.getElementById('loading').style.display = "none"
+        document.getElementById('article').style.display = "block"
+      }
+    } else {
+      alert('Select Image')
+
     }
-  }else{
-    alert('Select Image')
-
-  }
   }
 
 
@@ -77,19 +77,19 @@ function Closewarehouse(prop) {
 
           {/* <div className="row justify-content-center mt-5" style={{border:"2px solid red",width:"100%"}}> */}
           <div className="col-md-6" style={{ margin: "100px auto" }}>
-            <h2 className="card-title mt-2 text-light " style={{ marginLeft: "10%" }}><span style={{ color: "white",textShadow:"2px 1px 4px black" }}> Warehouse is Opened on {format_date} </span></h2>
+            <h2 className="card-title mt-2 text-light " style={{ marginLeft: "10%" }}><span style={{ color: "white", textShadow: "2px 1px 4px black" }}> Warehouse is Opened on {format_date} </span></h2>
 
             <div className="card">
               <header className="card-header">
-                <h4 className="card-title mt-2 text-light">Enter Warehouse Closing Entry<MdLibraryBooks style={{margin:"0 0 4px 4px"}}/></h4>
+                <h4 className="card-title mt-2 text-light">Enter Warehouse Closing Entry<MdLibraryBooks style={{ margin: "0 0 4px 4px" }} /></h4>
               </header>
 
               {/* {loading?( */}
-                  <h1 style={{display:"none",justifyContent:"center",alignItems:"center" }} id="loading">Please wait a second...</h1>
+              <h1 style={{ display: "none", justifyContent: "center", alignItems: "center" }} id="loading">Please wait a second...</h1>
 
-      {/* // ):( */}
-      <article className="card-body" id="article">
-                        <form>
+              {/* // ):( */}
+              <article className="card-body" id="article">
+                <form>
 
                   <div className="form-group">
                     <label>Date </label>
@@ -103,13 +103,13 @@ function Closewarehouse(prop) {
                   </div>
 
                   <div className="form-group">
-                    <label>Close by</label>
+                    <label>Close by (Security Guard)</label>
                     <input type="text" className="form-control" id="Closeby" />
                   </div>
 
                   <div className="form-group">
                     <label>AWL Person Present</label>
-                    <input className="form-control" type="text" id="awlperson"/>
+                    <input className="form-control" type="text" id="awlperson" />
                   </div>
 
                   {
@@ -119,15 +119,15 @@ function Closewarehouse(prop) {
 
                   <div className="form-group">
                     <button type="submit" id="submitBtn" onClick={handleClick} className="btn btn-primary mr-2">Submit</button>
-                    <input style={{background:"gray",marginTop:"2px"}} type="reset" className="btn btn-secondary " value='Reset' />
+                    <input style={{ background: "gray", marginTop: "2px" }} type="reset" className="btn btn-secondary " value='Reset' />
                     <button className="btn btn-success ml-2" onClick={(e) => { e.preventDefault() }} data-toggle="modal" data-target="#exampleModal">Upload Image</button>
                   </div>
                 </form>
               </article>
-      {/* )} */}
+              {/* )} */}
             </div>
           </div></div>
-         <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -141,10 +141,9 @@ function Closewarehouse(prop) {
                   <label className="col-sm-4 col-form-label">
                     Close Image
                   </label>
-                  <input type="file" className="" placeholder="" onChange={event => {
-                    const document = event.target.files[0];
-                    setFile(document)
-                  }}  />
+                  <input type="file" className=""  accept=".jpg, .jpeg, .png" onChange={event => {
+                    const document = event.target.files[0]; setFile(document)
+                  }} />
 
                 </div>
               </div>
@@ -154,7 +153,7 @@ function Closewarehouse(prop) {
               </div>
             </div>
           </div>
-          
+
         </div>
 
       </div>
